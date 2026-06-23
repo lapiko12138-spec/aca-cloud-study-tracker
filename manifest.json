@@ -1,0 +1,11 @@
+{
+  "name": "ACA 云计算认证备考",
+  "short_name": "ACA备考",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f5f7",
+  "theme_color": "#FF6A00",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
