@@ -1,0 +1,50 @@
+{
+  "id": "2026-10-07-agent-remote-execution",
+  "date": "2026-10-07",
+  "source": "用户提供的截图 IMG_8832.jpeg；帖子中的 Pi 版本和具体实现尚未核验",
+  "status": "awaiting_answer",
+  "mastery": null,
+  "summary": "Agent 远程执行的一种轻量方案：SSH 建立安全连接，远端用 Rust 编写的后台服务承接执行任务。SSH 本身不是完整编排系统。",
+  "concepts": [
+    {
+      "term": "SSH",
+      "explanation": "Secure Shell，安全远程登录及执行命令的协议；OpenSSH 是常见实现。像通往远端机器的加密通道。"
+    },
+    {
+      "term": "daemon",
+      "explanation": "后台服务进程，可持续等待任务并提供功能；具体任务管理能力取决于实现。"
+    },
+    {
+      "term": "Rust",
+      "explanation": "编程语言，截图表示后台服务用 Rust 编写；daemon 并非 Rust 专属。"
+    },
+    {
+      "term": "infra",
+      "explanation": "infrastructure 的简称，支撑应用运行的计算、存储、网络、权限和运行环境等基础设施。"
+    },
+    {
+      "term": "编排",
+      "explanation": "协调任务或服务在哪里运行、按什么顺序执行，以及失败后如何处理等。SSH 可充当连接和执行手段，不自动提供完整编排能力。"
+    },
+    {
+      "term": "Termux",
+      "explanation": "Android 上的终端和 Linux 环境应用。"
+    },
+    {
+      "term": "arm64",
+      "explanation": "64 位 ARM 架构，关系到程序能在哪类处理器上运行；不是应用或操作系统。"
+    }
+  ],
+  "question": {
+    "prompt": "Agent 通过 SSH 连接云服务器后执行 Python 脚本。脚本实际用的是你手机的 CPU，还是云服务器的 CPU？为什么？",
+    "type": "short_answer",
+    "answer": null,
+    "feedback": null
+  },
+  "sources": [
+    "https://man.openbsd.org/ssh",
+    "https://kubernetes.io/docs/concepts/overview/",
+    "https://termux.dev/en/"
+  ],
+  "next": "收到回答后批改并追加追问；学习完成后同步网站数据、知识笔记及进度档案。"
+}
