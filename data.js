@@ -9,7 +9,7 @@ window.STUDY_DATA = {
     examDate: "2026-07-17",          // 目标考试日（窗口 7/15–7/20 中段）
     examWindow: "2026-07-15 ~ 2026-07-20",
     dailyHours: "1–2 小时/天",
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-10-07",
     passLine: "60 / 100"
   },
 
@@ -26,6 +26,8 @@ window.STUDY_DATA = {
     { id: 3, name: "阶段三 · 安全运维+AI", dates: "7/7 – 7/13",  topics: "RAM · 云安全 · 云监控 · 弹性伸缩 · PAI/MaxCompute", status: "locked" },
     { id: 4, name: "阶段四 · 冲刺模考",   dates: "7/14 – 考试", topics: "全真模考 · 错题清零 · 高频速记", status: "locked" }
   ],
+
+  conceptSessions: [{ date: "2026-10-07", title: "SSH 与 daemon", status: "review_required", url: "lessons/2026-10-07-agent-remote-execution.html", note: "SSH 初步理解；daemon、执行环境和任务生命周期待复测；旧课程掌握度未重测" }],
 
   knowledge: [
     { board: "云计算基础",        mastery: 88, note: "服务/部署模型、地域可用区 全对 ✅" },
@@ -67,6 +69,9 @@ window.STUDY_DATA = {
   ],
 
   errors: [
+    { date: "2026-10-07", topic: "daemon 与机器", wrong: "将 daemon 当成远端机器本身", correct: "daemon 是机器上的后台程序/进程；待复测", src: "概念学习" },
+    { date: "2026-10-07", topic: "远端运行环境", wrong: "远端缺 Python 时认为可直接成功", correct: "远端执行需远端环境；改本地执行是另一方案，待复测", src: "概念学习" },
+    { date: "2026-10-07", topic: "断线与任务生命周期", wrong: "daemon 持续开着就保证任务继续", correct: "看任务是否独立于 SSH 会话及是否被接管，待复测", src: "概念学习" },
     { date: "6/23→6/26", topic: "⚠️ RDS 定位（反复错2次）", wrong: "以为 RDS 是负载均衡/网络（那是 SLB）", correct: "RDS=托管关系型数据库(MySQL/SQLServer等)，D=Database，属数据库类。看到 RDS 就想 MySQL", src: "入学Q8 + Day1测验Q7" },
     { date: "6/23→6/26", topic: "⚠️ RAM 用途（反复2次未答）", wrong: "两次均未作答", correct: "RAM=访问控制，建子账号+分权限，控制谁能访问哪些资源（像门禁卡）", src: "入学Q9 + Day1测验Q10" },
     { date: "2026-06-26", topic: "块存储 vs OSS", wrong: "不清楚「给ECS当硬盘/随机读写」用什么", correct: "块存储(云盘)=挂ECS当系统盘/数据盘、随机读写；OSS=海量文件、不当硬盘", src: "Day1测验Q5" },

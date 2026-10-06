@@ -2,8 +2,14 @@
   "id": "2026-10-07-agent-remote-execution",
   "date": "2026-10-07",
   "source": "用户提供的截图 IMG_8832.jpeg；帖子中的 Pi 版本和具体实现尚未核验",
-  "status": "awaiting_answer",
-  "mastery": null,
+  "status": "review_required",
+  "mastery": {
+    "SSH": "初步理解",
+    "execution_environment": "纠正后理解，待复测",
+    "daemon": "仍混淆程序与机器，待复测",
+    "task_lifecycle": "条件判断待巩固",
+    "other_concepts": "已解释，未测验"
+  },
   "summary": "Agent 远程执行的一种轻量方案：SSH 建立安全连接，远端用 Rust 编写的后台服务承接执行任务。SSH 本身不是完整编排系统。",
   "concepts": [
     {
@@ -38,13 +44,39 @@
   "question": {
     "prompt": "Agent 通过 SSH 连接云服务器后执行 Python 脚本。脚本实际用的是你手机的 CPU，还是云服务器的 CPU？为什么？",
     "type": "short_answer",
-    "answer": null,
-    "feedback": null
+    "answer": "云服务器的",
+    "feedback": "执行位置正确，未解释原因。"
   },
   "sources": [
     "https://man.openbsd.org/ssh",
     "https://kubernetes.io/docs/concepts/overview/",
     "https://termux.dev/en/"
   ],
-  "next": "收到回答后批改并追加追问；学习完成后同步网站数据、知识笔记及进度档案。"
+  "next": "复测：daemon 属于硬件还是软件？远端缺少 Python 是否可直接执行？任务与 SSH 会话的关系。之后再测 Rust / infra / 编排 / Termux / arm64。",
+  "attempts": [
+    {
+      "question": "服务器未安装 Python、手机安装了，远程执行能直接成功吗？",
+      "answer": "也能够成功 可以在本地运行？",
+      "feedback": "不能直接成功；本地运行是改变执行位置，不能替代远端运行环境。",
+      "result": "需纠正"
+    },
+    {
+      "question": "远程电脑没装 Excel，本地装了，能直接用吗？",
+      "answer": "可以控制电脑下载excel然后运行",
+      "feedback": "正确提出补装方案；需分清补装后能运行与原本直接运行。",
+      "result": "纠正后理解"
+    },
+    {
+      "question": "30 分钟任务，关闭手机一定会停止吗？取决于什么？",
+      "answer": "不会 取决于daemon持续开着",
+      "feedback": "取决于任务是否独立于 SSH 会话、是否被后台服务接管；daemon 存活并非充分条件，也不是唯一方案。",
+      "result": "部分理解"
+    },
+    {
+      "question": "用比喻说明 SSH 与 daemon 的区别。",
+      "answer": "ssh像一个链接两个机器的管道 daemon像在异端负责执行的机器本身",
+      "feedback": "SSH 的管道比喻准确。daemon 是远端机器上运行的后台程序/进程，不是机器。",
+      "result": "部分正确"
+    }
+  ]
 }
